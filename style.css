@@ -1,0 +1,295 @@
+html{
+          scroll-behavior: smooth;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+       
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+        header h1 {
+            /*font-size: 1.8rem;*/
+            color: #f39c12;
+            cursor: pointer;
+        }
+        header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #f39c12;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        header nav a:hover {
+            color: #e67e22;
+        }
+
+      
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            justify-content: center;
+            background: url('back.jpg') no-repeat center center/cover;
+            text-align: center;
+            color: #f39c12;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1, .hero p, .hero h2{
+          position: relative;
+          z-index: 1;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .hero h2 {
+            font-size: 2rem;
+            z-index: 2;
+            position: relative;
+            animation: slideIn 1.5s ease forwards;
+            font-family: courier;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease forwards;
+            padding: 1em;
+        }
+        .hero button {
+            padding: 12px 30px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            background: #f39c12;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            z-index: 2;
+            position: relative;
+             animation: slide 2s forwards, bounce 2s ease-in-out infinite; 
+
+        }
+        @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+
+        .hero button:hover {
+            background: #e67e22;
+            transform: scale(1.05);
+        }
+
+      
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+       
+        #trending {
+            padding: 60px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        marquee{
+          color: #ccc;
+          background: black;
+          padding: 5px;
+        }
+        #trending h2 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 20px;
+        }
+        .song-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .song-card {
+            width: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 60%;
+            backdrop-filter: blur(10px);
+        }
+        .song-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .song-card img {
+            width: 100%;
+            border-radius: 10px;
+            
+        }
+        
+        .song-card h3 {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #f39c12;
+        }
+        .song-card p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #1a1a2e;
+        }
+        footer p {
+            color: #f39c12;
+        }
+        .hero.resize{
+          font-size: 1.4rem;
+          color: red;
+        }
+        .hero div{
+          font-family: cursive;
+          color: #f39c12;
+          font-size: 2em;
+          z-index: 1;
+        }
+        .cube {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(45deg);
+  animation: spin 5s infinite linear;
+}
+
+.side {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('church-logo.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ccc;
+}
+.front  { transform: translateZ(25px); }
+.back   { transform: rotateY(180deg) translateZ(25px); }
+.left   { transform: rotateY(-90deg) translateZ(25px); }
+.right  { transform: rotateY(90deg) translateZ(25px); }
+.top    { transform: rotateX(90deg) translateZ(25px); }
+.bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+@keyframes spin {
+  from {
+    transform: rotateX(-30deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-30deg) rotateY(360deg);
+  }
+}
+.display{
+  display: none;   
+  animation: slideIn 1.5s ease forwards;
+
+}
+
+@keyframes slide{
+  from{transform: translateX(250px)}
+  to{transform: translateX(0)}
+}
+.hero h3{
+  animation: colorChange 1s forwards infinite;
+}
+@keyframes colorChange{
+  0%{color: green}
+  25%{color: red}
+  50%{color: goldenrod}
+  75%{color: darkgrey}
+  100%{color: peru}
+}
+#wait{
+  animation: colorChange 2s forwards infinite;
+  font-size: 5em;
+}
+#present{
+  font-size: 2.2rem;
+}
+.logo{
+  width: 4em;
+  height: 4em;
+  border-radius: 1em;
+}
+.last-text{
+  margin-top: 2em;
+}
+.last-text p::first-letter{
+  color: darkgoldenrod;
+  font-size: 1.5em;
+}
+.last-text p{
+  font-size: 1.4em;
+  
+}
+.favicon{
+  text-decoration: none;
+  font-size: 2em;
+}
+.contact{
+  text-decoration: none;
+  color: goldenrod;
+  font-size: 1em;
+}
+.contact-txt{
+  padding: 20px;
+}
+.song-card a{
+  text-decoration: none;
+}
